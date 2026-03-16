@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Woodland Academy — Sofia's 11+ Prep Portal</title>
+  <meta name="description" content="Sofia's personalised 11+ exam preparation portal for Henrietta Barnett Grammar School. Practice Maths, English, Verbal & Non-Verbal Reasoning." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- GLOBAL HEADER -->
+<!-- ═══════════════════════════════════════ -->
+<header class="site-header">
+  <div class="header-logo" onclick="showPage('home')">
+    <span class="logo-leaf">🌿</span>
+    <div>
+      <div class="logo-text">Woodland Academy</div>
+      <div class="logo-sub">Sofia's 11+ Portal</div>
+    </div>
+  </div>
+  <nav class="header-nav">
+    <button class="nav-link" data-page="home" onclick="showPage('home')">Home</button>
+    <button class="nav-link" data-page="student" onclick="showPage('student')">My Dashboard</button>
+    <button class="nav-link" data-page="quiz" onclick="showPage('quiz')">Practice</button>
+    <button class="nav-link" data-page="tips" onclick="showPage('tips')">Study Tips</button>
+    <button class="nav-link" data-page="badges" onclick="showPage('badges')">Badges</button>
+    <button class="nav-link" data-page="resources" onclick="showPage('resources')">Resources</button>
+    <button class="nav-link" data-page="parent" onclick="showPage('parent')">📊 Parent View</button>
+    <div class="xp-pill">⭐ <span id="header-xp">0</span> XP</div>
+  </nav>
+</header>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE: HOME (LANDING) -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="floating-elem" style="top:15%;left:10%;animation-delay:0s">🍃</div>
+    <div class="floating-elem" style="top:60%;left:5%;animation-delay:2s;font-size:16px">🌱</div>
+    <div class="floating-elem" style="top:25%;right:320px;animation-delay:4s;font-size:18px">🍀</div>
+    <div class="floating-elem" style="bottom:20%;left:15%;animation-delay:1s;font-size:14px">🌿</div>
+    <div class="hero-trees"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">🦋 &nbsp;Personalised 11+ Preparation</div>
+      <h1>Hello, <span class="name-accent">Sofia!</span><br>Your journey to <span class="accent">Henrietta Barnett</span> starts here.</h1>
+      <p class="hero-desc">Practice every subject at your own pace — with quizzes, study guides, and rewards to keep you motivated all the way to exam day!</p>
+      <div class="hero-dest">🎓 &nbsp;Destination: Henrietta Barnett Grammar School</div>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="showPage('quiz')">🎯 Start Practising</button>
+        <button class="btn-secondary" onclick="showPage('student')">📊 My Progress</button>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-stats-card">
+        <div class="stat-item">
+          <div class="stat-icon">📚</div>
+          <div>
+            <div class="stat-label">Subjects Covered</div>
+            <div class="stat-val">4 Subjects</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">🎯</div>
+          <div>
+            <div class="stat-label">Difficulty Levels</div>
+            <div class="stat-val">Easy · Medium · Hard</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">🏅</div>
+          <div>
+            <div class="stat-label">Badges to Earn</div>
+            <div class="stat-val">12 Badges</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">🎓</div>
+          <div>
+            <div class="stat-label">Goal School</div>
+            <div class="stat-val">Henrietta Barnett</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBJECTS OVERVIEW -->
+  <section style="background:#fff;">
+    <div class="section-label">Curriculum</div>
+    <div class="section-title">Everything Sofia Needs to Succeed</div>
+    <p class="section-desc">All four core subjects covered by the Henrietta Barnett 11+ exam, with questions written at Easy, Medium and Hard levels.</p>
+    <div class="subjects-grid">
+      <div class="subject-card maths" onclick="startSubjectQuiz('maths')">
+        <div class="subj-icon-wrap">🔢</div>
+        <div class="subj-name">Mathematics</div>
+        <p class="subj-desc">Number, fractions, percentages, algebra, shape, area, volume, sequences, statistics and more.</p>
+        <div class="subj-progress">
+          <div class="prog-bar"><div class="prog-fill" id="prog-maths" style="width:0%"></div></div>
+          <div class="prog-text" id="prog-maths-txt">Not started</div>
+        </div>
+        <button class="subj-start-btn">Start Maths Practice →</button>
+      </div>
+      <div class="subject-card english" onclick="startSubjectQuiz('english')">
+        <div class="subj-icon-wrap">📝</div>
+        <div class="subj-name">English</div>
+        <p class="subj-desc">Vocabulary, grammar, punctuation, comprehension, creative writing techniques and language analysis.</p>
+        <div class="subj-progress">
+          <div class="prog-bar"><div class="prog-fill" id="prog-english" style="width:0%"></div></div>
+          <div class="prog-text" id="prog-english-txt">Not started</div>
+        </div>
+        <button class="subj-start-btn">Start English Practice →</button>
+      </div>
+      <div class="subject-card verbal" onclick="startSubjectQuiz('verbal')">
+        <div class="subj-icon-wrap">💬</div>
+        <div class="subj-name">Verbal Reasoning</div>
+        <p class="subj-desc">Word codes, analogies, sequences, odd-one-out, anagrams, logical deduction and word relationships.</p>
+        <div class="subj-progress">
+          <div class="prog-bar"><div class="prog-fill" id="prog-verbal" style="width:0%"></div></div>
+          <div class="prog-text" id="prog-verbal-txt">Not started</div>
+        </div>
+        <button class="subj-start-btn">Start Verbal Practice →</button>
+      </div>
+      <div class="subject-card nonverbal" onclick="startSubjectQuiz('nonverbal')">
+        <div class="subj-icon-wrap">🔷</div>
+        <div class="subj-name">Non-Verbal Reasoning</div>
+        <p class="subj-desc">Shape patterns, symmetry, rotations, 3D nets, spatial reasoning and visual sequence problems.</p>
+        <div class="subj-progress">
+          <div class="prog-bar"><div class="prog-fill" id="prog-nonverbal" style="width:0%"></div></div>
+          <div class="prog-text" id="prog-nonverbal-txt">Not started</div>
+        </div>
+        <button class="subj-start-btn">Start Non-Verbal Practice →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- HB INFO SECTION -->
+  <section style="background:var(--cream)">
+    <div class="section-label">The Goal</div>
+    <div class="section-title">About Henrietta Barnett Grammar School</div>
+    <p class="section-desc">One of the UK's top grammar schools, consistently ranked among the best in the country.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+      <div style="background:#fff;border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow-sm);border-left:4px solid var(--forest-bright)">
+        <div style="font-size:28px;margin-bottom:8px">🏫</div>
+        <div style="font-family:'Fredoka One',cursive;font-size:17px;color:var(--forest-deep);margin-bottom:6px">Top Grammar School</div>
+        <div style="font-size:13px;color:var(--text-light)">Henrietta Barnett is consistently one of England's highest-achieving selective schools.</div>
+      </div>
+      <div style="background:#fff;border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow-sm);border-left:4px solid #1565C0">
+        <div style="font-size:28px;margin-bottom:8px">📋</div>
+        <div style="font-family:'Fredoka One',cursive;font-size:17px;color:var(--forest-deep);margin-bottom:6px">The 11+ Exam</div>
+        <div style="font-size:13px;color:var(--text-light)">Tests include English, Maths, Verbal Reasoning and Non-Verbal Reasoning — all covered here.</div>
+      </div>
+      <div style="background:#fff;border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow-sm);border-left:4px solid #E91E63">
+        <div style="font-size:28px;margin-bottom:8px">📅</div>
+        <div style="font-family:'Fredoka One',cursive;font-size:17px;color:var(--forest-deep);margin-bottom:6px">Prepare Early</div>
+        <div style="font-size:13px;color:var(--text-light)">Starting practice in Year 4–5 gives Sofia time to build confidence across all areas.</div>
+      </div>
+      <div style="background:#fff;border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow-sm);border-left:4px solid var(--gold-dark)">
+        <div style="font-size:28px;margin-bottom:8px">🌟</div>
+        <div style="font-family:'Fredoka One',cursive;font-size:17px;color:var(--forest-deep);margin-bottom:6px">You Can Do It!</div>
+        <div style="font-size:13px;color:var(--text-light)">Consistent daily practice — even just 15 minutes — makes a huge difference over time.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE: STUDENT DASHBOARD -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page" id="page-student">
+  <section style="background: linear-gradient(135deg, var(--forest-deep), #1e4d38); padding: 40px;">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
+      <div style="font-size:56px">🦊</div>
+      <div>
+        <div style="font-family:'Fredoka One',cursive;font-size:28px;color:#fff">Sofia's Dashboard</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.65)">🎓 Destination: Henrietta Barnett Grammar School</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px">
+      <div style="background:rgba(255,255,255,0.1);border-radius:var(--radius-md);padding:16px;text-align:center">
+        <div style="font-size:12px;color:rgba(255,255,255,0.6);font-weight:700;text-transform:uppercase;letter-spacing:0.5px">Overall Score</div>
+        <div style="font-family:'Fredoka One',cursive;font-size:32px;color:#fff" id="overall-score">0%</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.1);border-radius:var(--radius-md);padding:16px;text-align:center">
+        <div style="font-size:12px;color:rgba(255,255,255,0.6);font-weight:700;text-transform:uppercase;letter-spacing:0.5px">Total XP</div>
+        <div style="font-family:'Fredoka One',cursive;font-size:32px;color:var(--gold)" id="sofia-xp">0</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.1);border-radius:var(--radius-md);padding:16px;text-align:center">
+        <div style="font-size:12px;color:rgba(255,255,255,0.6);font-weight:700;text-transform:uppercase;letter-spacing:0.5px">Current Streak</div>
+        <div style="font-family:'Fredoka One',cursive;font-size:32px;color:#ff6b35" id="sofia-streak">0 days</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.1);border-radius:var(--radius-md);padding:16px;text-align:center">
+        <div style="font-size:12px;color:rgba(255,255,255,0.6);font-weight:700;text-transform:uppercase;letter-spacing:0.5px">Quizzes Done</div>
+        <div style="font-family:'Fredoka One',cursive;font-size:32px;color:var(--forest-pale)" id="sofia-quizzes">0</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:32px 40px">
+    <div class="section-title">📊 Subject Progress</div>
+    <div class="subjects-grid" style="margin-bottom:32px">
+      <div class="subject-card maths" onclick="startSubjectQuiz('maths')">
+        <div class="subj-icon-wrap">🔢</div>
+        <div class="subj-name">Maths</div>
+        <div class="subj-progress">
+          <div class="prog-bar"><div class="prog-fill" id="prog-maths" style="width:0%"></div></div>
+          <div class="prog-text" id="prog-maths-txt">Not started yet</div>
+        </div>
+        <button class="subj-start-btn">Practise Now →</button>
+      </div>
+      <div class="subject-card english" onclick="startSubjectQuiz('english')">
+        <div class="subj-icon-wrap">📝</div>
+        <div class="subj-name">English</div>
+        <div class="subj-progress">
+          <div class="prog-bar"><div class="prog-fill" id="prog-english" style="width:0%"></div></div>
+          <div class="prog-text" id="prog-english-txt">Not started yet</div>
+        </div>
+        <button class="subj-start-btn">Practise Now →</button>
+      </div>
+      <div class="subject-card verbal" onclick="startSubjectQuiz('verbal')">
+        <div class="subj-icon-wrap">💬</div>
+        <div class="subj-name">Verbal Reasoning</div>
+        <div class="subj-progress">
+          <div class="prog-bar"><div class="prog-fill" id="prog-verbal" style="width:0%"></div></div>
+          <div class="prog-text" id="prog-verbal-txt">Not started yet</div>
+        </div>
+        <button class="subj-start-btn">Practise Now →</button>
+      </div>
+      <div class="subject-card nonverbal" onclick="startSubjectQuiz('nonverbal')">
+        <div class="subj-icon-wrap">🔷</div>
+        <div class="subj-name">Non-Verbal</div>
+        <div class="subj-progress">
+          <div class="prog-bar"><div class="prog-fill" id="prog-nonverbal" style="width:0%"></div></div>
+          <div class="prog-text" id="prog-nonverbal-txt">Not started yet</div>
+        </div>
+        <button class="subj-start-btn">Practise Now →</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE: QUIZ -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page" id="page-quiz">
+  <section>
+    <div class="section-label">Practice Quiz</div>
+    <div class="section-title">Choose Your Challenge</div>
+    <p class="section-desc">Select a difficulty level, then pick your subject. Each quiz has 8 questions with detailed explanations.</p>
+
+    <!-- Difficulty Selector -->
+    <div style="margin-bottom:24px">
+      <div style="font-size:13px;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Difficulty Level</div>
+      <div class="difficulty-strip">
+        <button class="diff-btn easy active" onclick="setDifficulty('easy')">🌱 Easy — Building Blocks</button>
+        <button class="diff-btn medium" onclick="setDifficulty('medium')">🌿 Medium — Getting Stronger</button>
+        <button class="diff-btn hard" onclick="setDifficulty('hard')">🌳 Hard — Exam Ready</button>
+      </div>
+    </div>
+
+    <!-- Subject Selector (intro) -->
+    <div id="quiz-intro">
+      <div style="font-size:13px;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px">Pick a Subject</div>
+      <div class="subjects-grid">
+        <div class="subject-card maths" onclick="beginQuiz('maths')">
+          <div class="subj-icon-wrap">🔢</div>
+          <div class="subj-name">Maths</div>
+          <p class="subj-desc">8 questions · Instant feedback · Detailed explanations</p>
+          <button class="subj-start-btn">Start Quiz →</button>
+        </div>
+        <div class="subject-card english" onclick="beginQuiz('english')">
+          <div class="subj-icon-wrap">📝</div>
+          <div class="subj-name">English</div>
+          <p class="subj-desc">8 questions · Instant feedback · Detailed explanations</p>
+          <button class="subj-start-btn">Start Quiz →</button>
+        </div>
+        <div class="subject-card verbal" onclick="beginQuiz('verbal')">
+          <div class="subj-icon-wrap">💬</div>
+          <div class="subj-name">Verbal Reasoning</div>
+          <p class="subj-desc">8 questions · Instant feedback · Detailed explanations</p>
+          <button class="subj-start-btn">Start Quiz →</button>
+        </div>
+        <div class="subject-card nonverbal" onclick="beginQuiz('nonverbal')">
+          <div class="subj-icon-wrap">🔷</div>
+          <div class="subj-name">Non-Verbal Reasoning</div>
+          <p class="subj-desc">8 questions · Instant feedback · Detailed explanations</p>
+          <button class="subj-start-btn">Start Quiz →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz Question Area -->
+    <div id="quiz-q-area" style="display:none; max-width:700px; margin:0 auto;">
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-subject-tag" id="quiz-subj-tag">📚 Subject</span>
+          <span class="quiz-difficulty-tag" id="quiz-diff-tag">Easy</span>
+          <span class="quiz-progress-ring">
+            <span id="q-counter">Q 1 of 8</span>
+            &nbsp;·&nbsp; ⭐ <span id="q-running-score">0 pts</span>
+          </span>
+        </div>
+        <div class="q-bar-wrap"><div class="q-bar-fill" id="q-bar" style="width:0%"></div></div>
+        <div class="question-card">
+          <div class="question-num" id="q-num">Question 1</div>
+          <div class="question-text" id="q-text">Loading...</div>
+        </div>
+        <div class="options-grid" id="q-options"></div>
+        <div class="feedback-box" id="q-feedback"></div>
+        <div class="quiz-actions">
+          <button class="btn-skip" id="btn-skip" onclick="Quiz.next()">Skip →</button>
+          <button class="btn-next" id="btn-next" onclick="Quiz.next()">Next Question 🌿</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result Screen -->
+    <div class="result-screen" id="quiz-result" style="max-width:700px;margin:0 auto;">
+      <div class="quiz-container" style="padding:40px">
+        <div class="result-big-emoji" id="res-emoji">🏆</div>
+        <div class="result-title" id="res-title">Brilliant!</div>
+        <div class="result-grade" id="res-score">8/8</div>
+        <div style="font-size:24px;font-weight:700;color:var(--text-light)" id="res-pct">100%</div>
+        <p class="result-msg" id="res-msg">Amazing work!</p>
+        <div class="result-xp-gained" id="res-xp">+80 XP earned!</div>
+        <div class="result-btns">
+          <button class="btn-retry" onclick="Quiz.start(Quiz.subject, Quiz.difficulty)">Try Again 🔄</button>
+          <button class="btn-change" onclick="document.getElementById('quiz-q-area').style.display='none'; document.getElementById('quiz-result').className='result-screen'; document.getElementById('quiz-intro').style.display=''; document.getElementById('btn-skip').style.display='';">Change Subject</button>
+          <button class="btn-change" onclick="showPage('student')">My Progress 📊</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE: STUDY TIPS -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page" id="page-tips">
+  <section>
+    <div class="section-label">Study Guides</div>
+    <div class="section-title">Tips to Help You Excel</div>
+    <p class="section-desc">Click on any guide below to expand it and read the tips inside.</p>
+    <div style="display:flex;flex-direction:column;gap:12px" id="tips-container">
+      <!-- Tips rendered here by JS below -->
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE: BADGES -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page" id="page-badges">
+  <section>
+    <div class="section-label">Rewards</div>
+    <div class="section-title">Sofia's Badge Collection 🏅</div>
+    <p class="section-desc">Earn badges by practising regularly, scoring well, and hitting milestones on your journey to Henrietta Barnett!</p>
+    <div class="badges-grid" id="badges-grid-main"></div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE: RESOURCES (PLACEHOLDER) -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page" id="page-resources">
+  <section>
+    <div class="section-label">Coming Soon</div>
+    <div class="section-title">Extra Resources</div>
+    <p class="section-desc">We're building out these sections to give Sofia the most complete 11+ preparation possible.</p>
+
+    <div class="coming-soon-banner">
+      <div class="cs-icon">🛠️</div>
+      <div class="coming-soon-tag">In Development</div>
+      <h2>More Pages Coming Soon!</h2>
+      <p>These sections are planned and will be added to Woodland Academy. Keep practising in the meantime!</p>
+      <div class="placeholder-grid">
+        <div class="placeholder-card">
+          <div class="pc-icon">📄</div>
+          <h4>Mock Papers</h4>
+          <p>Full timed 11+ mock exams in exam conditions</p>
+        </div>
+        <div class="placeholder-card">
+          <div class="pc-icon">🎬</div>
+          <h4>Video Lessons</h4>
+          <p>Short explainer videos for tricky topics</p>
+        </div>
+        <div class="placeholder-card">
+          <div class="pc-icon">📖</div>
+          <h4>Vocabulary Builder</h4>
+          <p>Daily word challenges and vocabulary drills</p>
+        </div>
+        <div class="placeholder-card">
+          <div class="pc-icon">🗺️</div>
+          <h4>Revision Planner</h4>
+          <p>A personalised timetable and study calendar</p>
+        </div>
+        <div class="placeholder-card">
+          <div class="pc-icon">👥</div>
+          <h4>Parent Guides</h4>
+          <p>How to support Sofia's learning at home</p>
+        </div>
+        <div class="placeholder-card">
+          <div class="pc-icon">💬</div>
+          <h4>Discussion Forum</h4>
+          <p>Tips and support from other 11+ families</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE: PARENT DASHBOARD -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page" id="page-parent">
+  <div class="parent-header">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px">
+      <div style="font-size:36px">📊</div>
+      <div>
+        <h1>Parent Dashboard</h1>
+        <p>Tracking Sofia's progress towards Henrietta Barnett Grammar School</p>
+      </div>
+    </div>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,214,10,0.15);border:1px solid rgba(255,214,10,0.3);border-radius:10px;padding:7px 14px;margin-top:10px">
+      <span style="font-size:16px">🎓</span>
+      <span style="color:var(--gold);font-size:13px;font-weight:700">Goal: Henrietta Barnett Grammar School</span>
+    </div>
+  </div>
+
+  <div class="dashboard-grid">
+    <div class="dash-card blue">
+      <div class="dc-label">Total XP Earned</div>
+      <div class="dc-val" id="pd-xp">0</div>
+      <div class="dc-sub">Experience points</div>
+    </div>
+    <div class="dash-card green">
+      <div class="dc-label">Overall Accuracy</div>
+      <div class="dc-val" id="pd-avg">0%</div>
+      <div class="dc-sub">All subjects combined</div>
+    </div>
+    <div class="dash-card orange">
+      <div class="dc-label">Quizzes Completed</div>
+      <div class="dc-val" id="pd-quizzes">0</div>
+      <div class="dc-sub">Total sessions</div>
+    </div>
+    <div class="dash-card purple">
+      <div class="dc-label">Practice Streak</div>
+      <div class="dc-val" id="pd-streak">0 days</div>
+      <div class="dc-sub">Consecutive days</div>
+    </div>
+  </div>
+
+  <div class="parent-section">
+    <h3>📚 Subject Breakdown</h3>
+    <div class="subj-breakdown" id="pd-breakdown">
+      <div style="text-align:center;color:var(--text-light);font-size:14px;padding:30px">Loading...</div>
+    </div>
+  </div>
+
+  <div class="parent-section">
+    <h3>🕐 Recent Activity Log</h3>
+    <div class="activity-log" id="pd-activity">
+      <div style="padding:20px;text-align:center;color:#aaa;font-size:14px">No activity recorded yet.</div>
+    </div>
+  </div>
+
+  <div class="parent-section">
+    <h3>💡 What's Next for Sofia?</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+      <div style="background:#fff;border-radius:var(--radius-md);padding:18px;box-shadow:var(--shadow-sm);border-left:4px solid var(--forest-bright)">
+        <div style="font-weight:700;color:var(--forest-deep);margin-bottom:6px">📅 Daily Practice Goal</div>
+        <div style="font-size:13px;color:var(--text-light)">Aim for 2 quizzes per day — about 20 minutes. Consistency matters more than length.</div>
+      </div>
+      <div style="background:#fff;border-radius:var(--radius-md);padding:18px;box-shadow:var(--shadow-sm);border-left:4px solid #E91E63">
+        <div style="font-weight:700;color:var(--forest-deep);margin-bottom:6px">🎯 Focus Areas</div>
+        <div style="font-size:13px;color:var(--text-light)">Check the Subject Breakdown above. Subjects with lower scores need more attention.</div>
+      </div>
+      <div style="background:#fff;border-radius:var(--radius-md);padding:18px;box-shadow:var(--shadow-sm);border-left:4px solid var(--gold-dark)">
+        <div style="font-weight:700;color:var(--forest-deep);margin-bottom:6px">🌱 Progression Path</div>
+        <div style="font-size:13px;color:var(--text-light)">Start on Easy, then once scoring 80%+ consistently, move to Medium, then Hard.</div>
+      </div>
+      <div style="background:#fff;border-radius:var(--radius-md);padding:18px;box-shadow:var(--shadow-sm);border-left:4px solid #9C27B0">
+        <div style="font-weight:700;color:var(--forest-deep);margin-bottom:6px">🏫 Henrietta Barnett Tips</div>
+        <div style="font-size:13px;color:var(--text-light)">HB's 11+ is competitive. Strong performance in all four areas is essential.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="parent-section" style="padding-bottom:60px">
+    <h3>⚠️ Reset Sofia's Data</h3>
+    <div style="background:#FFEBEE;border-radius:var(--radius-md);padding:20px;border:1px solid #EF9A9A">
+      <p style="font-size:14px;color:#C62828;margin-bottom:12px">⚠️ This will permanently delete all of Sofia's progress, scores, XP and badges.</p>
+      <button onclick="if(confirm('Are you sure? This will delete ALL of Sofia\'s progress data permanently.')) { localStorage.removeItem('wa_sofia'); DB.init(); updateHomeStats(); renderParentDashboard(); showToast('Data reset. Sofia\'s progress has been cleared.'); }" style="background:#F44336;color:#fff;border:none;border-radius:var(--radius-sm);padding:10px 20px;font-family:'Fredoka One',cursive;font-size:15px;cursor:pointer;">Reset All Data</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- FOOTER -->
+<!-- ═══════════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="fb-logo">🌿 Woodland Academy</div>
+      <p>Sofia's personalised 11+ preparation portal for Henrietta Barnett Grammar School. Practice every subject, track progress, and celebrate achievements on the journey to grammar school.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Practice</h5>
+      <a onclick="showPage('quiz');startSubjectQuiz('maths')">🔢 Maths Quizzes</a>
+      <a onclick="showPage('quiz');startSubjectQuiz('english')">📝 English Quizzes</a>
+      <a onclick="showPage('quiz');startSubjectQuiz('verbal')">💬 Verbal Reasoning</a>
+      <a onclick="showPage('quiz');startSubjectQuiz('nonverbal')">🔷 Non-Verbal Reasoning</a>
+    </div>
+    <div class="footer-col">
+      <h5>Coming Soon</h5>
+      <span class="placeholder-link">📄 Mock Papers</span>
+      <span class="placeholder-link">🎬 Video Lessons</span>
+      <span class="placeholder-link">📖 Vocabulary Builder</span>
+      <span class="placeholder-link">🗺️ Revision Planner</span>
+    </div>
+    <div class="footer-col">
+      <h5>Portal</h5>
+      <a onclick="showPage('student')">📊 Sofia's Dashboard</a>
+      <a onclick="showPage('parent')">👩‍👧 Parent Dashboard</a>
+      <a onclick="showPage('badges')">🏅 Badge Collection</a>
+      <a onclick="showPage('tips')">📖 Study Tips</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>🌿 Woodland Academy — Built with ❤️ for Sofia's 11+ journey to Henrietta Barnett</span>
+    <span>© 2025 Woodland Academy</span>
+  </div>
+</footer>
+
+<!-- LOGIN MODAL -->
+<div class="modal-overlay" id="login-modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-tabs">
+      <button class="modal-tab active" data-tab="sofia" onclick="switchModalTab('sofia')">🦊 Sofia</button>
+      <button class="modal-tab" data-tab="parent" onclick="switchModalTab('parent')">👩‍👧 Parent</button>
+    </div>
+    <div class="login-form" id="form-sofia">
+      <h3>👋 Welcome back, Sofia!</h3>
+      <div class="form-group"><label>Your Name</label><input type="text" value="Sofia" readonly /></div>
+      <div class="form-group"><label>Password</label><input type="password" placeholder="Enter your password" /></div>
+      <button class="form-submit" onclick="closeModal();showPage('student');showToast('Welcome back, Sofia! 🌿','success')">Let's Go! 🌿</button>
+      <p class="form-note">Your progress is saved automatically in this browser.</p>
+    </div>
+    <div class="login-form" id="form-parent" style="display:none">
+      <h3>👩‍👧 Parent Access</h3>
+      <div class="form-group"><label>Parent Email</label><input type="email" placeholder="your@email.com" /></div>
+      <div class="form-group"><label>Password</label><input type="password" placeholder="Enter password" /></div>
+      <button class="form-submit" onclick="closeModal();showPage('parent');showToast('Parent dashboard loaded 📊','success')">View Dashboard 📊</button>
+      <p class="form-note">View Sofia's full progress, activity log and recommendations.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="js/questions.js"></script>
+<script src="js/app.js"></script>
+<script>
+  // Build tips page
+  const TIPS_DATA = [
+    { subj:"Maths", icon:"🔢", title:"Times Tables — Master Them!", body:"<ul style='padding-left:18px;line-height:2'><li>Learn your 2, 5 and 10 times tables first — these are easiest!</li><li>For the 9× table: multiply by 10, then subtract the number (e.g. 9×7 = 70−7 = 63).</li><li>A number is divisible by 3 if its digits add up to a multiple of 3.</li><li>Square numbers (1, 4, 9, 16, 25, 36, 49, 64, 81, 100) come up often — memorise them!</li><li>5 minutes of times table practice every morning adds up to big gains.</li></ul>" },
+    { subj:"Maths", icon:"📐", title:"Fractions, Decimals & Percentages", body:"<ul style='padding-left:18px;line-height:2'><li>To find 10%, divide by 10. For 5%, halve the 10% answer. For 15% = 10% + 5%.</li><li>Key equivalents to memorise: ½=0.5=50%, ¼=0.25=25%, ¾=0.75=75%, ⅓≈0.33=33%.</li><li>When adding fractions, always make the denominators equal first.</li><li>To multiply fractions: multiply tops together, multiply bottoms together, then simplify.</li></ul>" },
+    { subj:"Maths", icon:"📏", title:"Shape, Area & Perimeter", body:"<ul style='padding-left:18px;line-height:2'><li>Area of rectangle = length × width. Area of triangle = ½ × base × height.</li><li>Perimeter = add up all the sides.</li><li>Volume of cuboid = length × width × height.</li><li>Remember angle rules: angles on a straight line = 180°, in a triangle = 180°, in a full turn = 360°.</li></ul>" },
+    { subj:"English", icon:"📝", title:"Build Your Vocabulary Every Day", body:"<ul style='padding-left:18px;line-height:2'><li>Read for at least 20 minutes daily — it's the single best vocabulary builder.</li><li>Keep a 'word of the day' notebook. Write the word, its meaning, and use it in a sentence.</li><li>Learn to spot prefixes (un-, mis-, pre-) and suffixes (-ness, -tion, -ful) to decode unknown words.</li><li>Practise synonyms and antonyms — 11+ exams love testing these!</li></ul>" },
+    { subj:"English", icon:"✍️", title:"Writing Techniques for Top Marks", body:"<ul style='padding-left:18px;line-height:2'><li>Vary your sentence starters — avoid beginning every sentence with 'I' or 'The'.</li><li>Use AFOREST for persuasive writing: Alliteration, Facts, Opinions, Rhetorical questions, Emotive language, Statistics, Tricolon.</li><li>Show, don't tell: instead of 'she was scared', write 'her hands trembled as she reached for the door'.</li><li>Plan before you write — even a short 2-minute list of ideas makes a big difference.</li></ul>" },
+    { subj:"Verbal Reasoning", icon:"💬", title:"Cracking Codes & Analogies", body:"<ul style='padding-left:18px;line-height:2'><li>Memorise your alphabet positions: A=1, B=2...Z=26. This helps with code questions.</li><li>For analogies, always identify the relationship FIRST, then apply it.</li><li>For anagrams, look for common endings: -ING, -TION, -LY, -ER to narrow down options.</li><li>Practise working at speed — verbal reasoning tests are often timed tightly.</li></ul>" },
+    { subj:"Non-Verbal Reasoning", icon:"🔷", title:"Spotting Patterns & Shapes", body:"<ul style='padding-left:18px;line-height:2'><li>In any pattern, check for changes in: SIZE, COLOUR/SHADING, ROTATION, NUMBER of shapes, POSITION.</li><li>Eliminate the most obviously wrong answer first — this narrows your choice quickly.</li><li>For 3D nets, mentally fold the shape. A cube needs exactly 6 squares connected correctly.</li><li>Know your 2D and 3D shape names and their properties (faces, edges, vertices).</li></ul>" },
+    { subj:"All Subjects", icon:"⏱️", title:"Exam Day Strategy", body:"<ul style='padding-left:18px;line-height:2'><li>Read each question carefully — twice if needed. Underlining key words helps.</li><li>If you're stuck, skip it and come back. Never waste 3 minutes on one question.</li><li>Answer EVERY question — there's no penalty for wrong answers in most 11+ formats.</li><li>Keep an eye on the clock. With 5 minutes left, check all unanswered questions.</li><li>Get a good night's sleep the night before, and eat a proper breakfast on exam day.</li></ul>" },
+    { subj:"All Subjects", icon:"🧠", title:"How to Study Effectively", body:"<ul style='padding-left:18px;line-height:2'><li>Use 'spaced repetition' — review material after 1 day, then 3 days, then 1 week.</li><li>Active recall beats re-reading: close the book and test yourself from memory.</li><li>Break study into 20-minute chunks with 5-minute breaks (the Pomodoro Technique).</li><li>After each quiz, always read the explanations for questions you got wrong.</li><li>Teach the topic to a parent or sibling — explaining it solidifies your understanding!</li></ul>" }
+  ];
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('tips-container');
+    TIPS_DATA.forEach(tip => {
+      const card = document.createElement('div');
+      card.style.cssText = 'background:#fff;border-radius:16px;padding:20px;border:2px solid #e0ece0;cursor:pointer;transition:all 0.2s';
+      card.innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="display:flex;align-items:center;gap:12px">
+            <span style="font-size:28px">${tip.icon}</span>
+            <div>
+              <div style="font-family:'Fredoka One',cursive;font-size:17px;color:#1a3a2a">${tip.title}</div>
+              <div style="font-size:11px;font-weight:700;color:#6a8f70;text-transform:uppercase;letter-spacing:0.5px">${tip.subj}</div>
+            </div>
+          </div>
+          <span class="chevron" style="font-size:18px;color:#95d5b2;transition:transform 0.2s">▶</span>
+        </div>
+        <div class="tip-body" style="display:none;margin-top:14px;padding-top:14px;border-top:1.5px dashed #c8e6c9;font-size:14px;color:#3a5c43;line-height:1.7">${tip.body}</div>`;
+      card.onclick = () => {
+        const body = card.querySelector('.tip-body');
+        const chevron = card.querySelector('.chevron');
+        const open = body.style.display !== 'none';
+        body.style.display = open ? 'none' : 'block';
+        chevron.style.transform = open ? '' : 'rotate(90deg)';
+        card.style.borderColor = open ? '#e0ece0' : '#3a7d44';
+      };
+      container.appendChild(card);
+    });
+  });
+</script>
+</body>
+</html>
